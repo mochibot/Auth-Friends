@@ -38,15 +38,17 @@ export default withFormik({
     password: Yup.string().required('Password is required')
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values, { resetForm, setErrors, setSubmitting, props }) {
     console.log('login: ', values);
     setSubmitting(true);
     axios.post('http://localhost:5000/api/login', values)
       .then(response => {
         resetForm()
         console.log(response);
-        localStorage.setItem('userToken', response.data.payload)
+        localStorage.setItem('userToken', response.data.payload);
+        props.setIsLoggedIn(true);
         setSubmitting(false);
+        props.history.push('/friends');
       })
       .catch(error => {
         console.log(error.message);
