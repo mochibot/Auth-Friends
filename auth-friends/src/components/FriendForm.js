@@ -6,21 +6,21 @@ import * as Yup from 'yup';
 const FriendForm = ({touched, errors}) => {
   return (
     <div>
-      <Form>
-        <div>
+      <Form className='friends-form'>
+        <div className='friends-field'>
           <label>Name:</label>
           <Field name='name'></Field>
-          {touched.name && errors.name && <p className='friend-form-error'>{errors.name}</p>}
+          {touched.name && errors.name && <p className='friends-error'>{errors.name}</p>}
         </div>
-        <div>
+        <div className='friends-field'>
           <label>Age:</label>
           <Field name='age'></Field>
-          {touched.age && errors.age && <p className='friend-form-error'>{errors.age}</p>}
+          {touched.age && errors.age && <p className='friends-error'>{errors.age}</p>}
         </div>
-        <div>
+        <div className='friends-field'>
           <label>Email:</label>
           <Field name='email'></Field>
-          {touched.email && errors.email && <p className='friend-form-error'>{errors.email}</p>}
+          {touched.email && errors.email && <p className='friends-error'>{errors.email}</p>}
         </div>
         <button>Submit</button>
       </Form>

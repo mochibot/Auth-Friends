@@ -61,10 +61,12 @@ const FriendList = () => {
   }
 
   return (
-    <div>
+    <div className='friends-container'>
       <FriendForm addFriend={addFriend} editFriend={editFriend} activeFriend={activeFriend}/>
       {isLoading && <div>Loading...</div>}
-      {friends.map(item => <Friend key={item.id} friend={item} selectFriend={selectFriend} deleteFriend={deleteFriend}/>)}
+      <div className='friends-list'>
+        {friends.map(item => <Friend key={item.id} friend={item} selectFriend={selectFriend} deleteFriend={deleteFriend}/>)}
+      </div>
     </div>
   )
 }

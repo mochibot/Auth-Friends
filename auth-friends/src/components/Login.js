@@ -8,13 +8,13 @@ const Login = ({ errors, touched, isSubmitting }) => {
   return (
     <div>
       {isSubmitting && <div>Submitting</div>}
-      <Form>
-        <div>
+      <Form className='login-form'>
+        <div className='login-field'>
           <label>Username: </label>
           <Field name='username'></Field>
           {touched.username && errors.username && <p className='login-error'>{errors.username}</p>}
         </div>
-        <div>
+        <div className='login-field'>
           <label>Password: </label>
           <Field type='password' name='password'></Field>
           {touched.password && errors.password && <p className='login-error'>{errors.password}</p>}
